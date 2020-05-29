@@ -1605,12 +1605,21 @@
 		UI.el.appendChild( audio_container );
 
 
+
+
 		var main_audio_view = d.createElement ( 'div' );
 		main_audio_view.className = 'pk_av pk_noselect';
 		main_audio_view.id = 'pk_av_' + app.id;
 		audio_container.appendChild( main_audio_view );
 
 		
+		var daveContainer = d.createElement ('div');
+		daveContainer.innerText = 'daaaaave';
+		daveContainer.style.border = ('bold 5px red');
+		daveContainer.className = 'dave';
+		audio_container.appendChild ( daveContainer );
+
+
 		var footer = d.createElement ( 'div' );
 		footer.className = 'pk_ftr pk_noselect';
 		UI.el.appendChild( footer );
@@ -2010,8 +2019,11 @@
 		var container = d.createElement ( 'div' );
 		container.className = 'pk_tbc';
 
+
+
 		var toolbar = d.createElement ( 'div' );
 		toolbar.className = 'pk_tb pk_noselect';
+
 
 		var btn_groups = d.createElement( 'div' );
 		btn_groups.className = 'pk_btngroup';

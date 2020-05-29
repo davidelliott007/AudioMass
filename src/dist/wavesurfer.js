@@ -349,6 +349,7 @@ var Drawer = function (_util$Observer) {
             //            return;
             //        }
             //    }
+			console.log("dave addEventListener mousedown ");
 
                 if (_this2.params.interact) {
                     _this2.fireEvent('click', e, _this2.handleEvent(e));

@@ -1628,6 +1628,7 @@
 					play_btn.innerText = 'Play Track';
 				};
 				DidPlay = function() {
+					console.log("test ");
 					play_btn.classList.add ('pk_act');
 					play_btn.innerText = 'Stop Track';
 				};

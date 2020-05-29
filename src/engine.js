@@ -514,6 +514,7 @@
 			wavesurfer.skipBackward ( val )
 		});
 		app.listenFor ('RequestSkipFront', function( val ) {
+			console.log("dave RequestSkipFront ");
 			wavesurfer.skipForward ( val );
 		});
 		app.listenFor ('RequestSeekTo', function( val ) {

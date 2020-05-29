@@ -5,7 +5,9 @@
 		_id = -1;
 
 	function PKAE () {
+		console.log("1");
 		var q = this; // keeping track of current context
+		console.log("2");
 
 		q.el = null; // reference of main html element
 		q.id = ++_id; // auto incremental id
@@ -13,9 +15,12 @@
 
 		w.PKAudioList[q.id] = q;
 
+		console.log(q);
 		var events = {};
+		console.log("3");
 
 		q.fireEvent = function ( eventName, value, value2 ) {
+			console.log(eventName)
 			var group = events[eventName];
 			if (!group) return (false);
 
@@ -26,11 +31,13 @@
 		};
 
 		q.listenFor = function ( eventName, callback ) {
+			//console.log(eventName);
 			if (!events[eventName])
 				events[eventName] = [ callback ];
 			else
 				events[eventName].unshift ( callback  );
 		};
+		console.log("4");
 
 		q.stopListeningFor = function ( eventName, callback ) {
 			var group = events[eventName];
@@ -58,16 +65,26 @@
 			}
 			q.el = el;
 
+			console.log("5");
+
+			// console.log(q.el);
+
+
 			// init libraries
-			q.ui     = new q._deps.ui ( q ); q._deps.uifx ( q );
+			q.ui = new q._deps.ui ( q );
+			q._deps.uifx ( q );
 			q.engine = new q._deps.engine ( q );
 			q.state  = new q._deps.state ( 4, q );
 			q.rec    = new q._deps.rec ( q );
 			q.fls    = new q._deps.fls ( q );
 
+
+			// nothing gets run in LiveServer
+
 			if (w.location.href.split('local=')[1]) {
 				var sess = w.location.href.split('local=')[1];
 
+				console.log("dave");
 				q.fls.Init (function () {
 					q.fls.GetSession (sess, function ( e ) {
 						if(e && e.id === sess )
@@ -94,4 +111,6 @@
 
 	PKAudioList.push (w.PKAudioEditor); // keeping track in the audiolist array of our instance
 
+
+	console.log(w.PKAudioEditor);
 })( window, document );
